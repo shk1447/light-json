@@ -36,7 +36,7 @@ var LJSON = new LightJSON(schema);
 
 // performance test
 console.log('Serialize for server')
-console.log('\tBytes')
+console.log('\tTime(ms)')
 var t0 = performance.now();
 for(var i = 0; i < 100; i++) {
   var output_buffer = LJSON.binarify(info)
@@ -47,8 +47,10 @@ for(var i = 0; i < 100; i++) {
   var output_string = JSON.stringify(info);
 }
 console.log('\t\t',Math.round(performance.now() - t0), 'ms');
+
+console.log('\tBytes')
 console.log('\t\t',output_buffer.byteLength, 'byte');
-console.log('\t\t',output_string.length, 'byte');
+console.log('\t\t',Buffer.from(output_string).byteLength, 'byte');
 
 console.log('Deserialize for client')
 console.log('\tTime(ms)')
