@@ -1,0 +1,19 @@
+{
+  "name": "light-json",
+  "version": "0.0.1",
+  "description": "light-json for node.js and the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shk1447/light-json.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shk1447/light-json/issues"
+  },
+  "homepage": "https://github.com/shk1447/light-json#readme"
+}
