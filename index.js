@@ -376,7 +376,7 @@ Type.prototype.binarify = function (value) {
   this.write(value, data, '')
   return data.toBuffer()
 }
-stringify
+
 Type.prototype.parse = function (buffer) {
   return this.read(new ReadState(buffer))
 }
