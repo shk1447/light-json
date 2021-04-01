@@ -371,13 +371,13 @@ Type.TYPE = {
 
 Type.types = Type.prototype.types = types
 
-Type.prototype.encode = function (value) {
+Type.prototype.binarify = function (value) {
   var data = new Data
   this.write(value, data, '')
   return data.toBuffer()
 }
-
-Type.prototype.decode = function (buffer) {
+stringify
+Type.prototype.parse = function (buffer) {
   return this.read(new ReadState(buffer))
 }
 
