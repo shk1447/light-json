@@ -115,7 +115,7 @@ types['string'] = {
       throw new TypeError('Expected a string at ' + path + ', got ' + s)
     }
 
-    types.Buffer.write(new Buffer(s), data, path)
+    types.Buffer.write(Buffer.from(s), data, path)
   },
   read: function (state) {
     return types.Buffer.read(state).toString()
@@ -163,7 +163,7 @@ types['json'] = {
 
 types['oid'] = {
   write: function (o, data, path) {
-    var buffer = new Buffer(String(o), 'hex')
+    var buffer = Buffer.from(String(o), 'hex')
     if (buffer.length !== 12) {
       throw new TypeError('Expected an object id (12 bytes) at ' + path + ', got ' + o)
     }
@@ -211,7 +211,7 @@ types['date'] = {
 };
 
 function Data(capacity) {
-  this._buffer = new Buffer(capacity || 128)
+  this._buffer = Buffer.alloc(capacity || 1)
   this._length = 0
 }
 
@@ -257,7 +257,7 @@ Data.prototype._alloc = function (bytes) {
       buffLen *= 2
     } while (this._length + bytes > buffLen)
 
-    newBuffer = new Buffer(buffLen)
+    newBuffer = Buffer.alloc(buffLen)
     this._buffer.copy(newBuffer, 0, 0, this._length)
     this._buffer = newBuffer
   }

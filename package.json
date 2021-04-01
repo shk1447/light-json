@@ -1,9 +1,11 @@
 {
   "name": "light-json",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "light-json for node.js and the browser.",
   "main": "./index.js",
-  "scripts": {},
+  "scripts": {
+    "benchmark":"node ./example"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shk1447/light-json.git"
