@@ -1,6 +1,6 @@
 {
   "name": "light-json",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "light-json for node.js and the browser.",
   "main": "./index.js",
   "scripts": {},

@@ -1,5 +1,5 @@
 'use strict'
-import { Buffer } from 'buffer';
+const Buffer = require('buffer').Buffer;
 // Stores 2^i from i=0 to i=56
 var POW = (function () {
   var r = [],
