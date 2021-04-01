@@ -23,7 +23,7 @@ var info = [{
   data:[],
   date:new Date()
 }];
-for(var i = 0; i < 1000; i++) {
+for(var i = 0; i < 10000; i++) {
   info[0].data.push({
     x:i,
     y:i,
@@ -38,12 +38,12 @@ var LJSON = new LightJSON(schema);
 console.log('Serialize for server')
 console.log('\tBytes')
 var t0 = performance.now();
-for(var i = 0; i < 1000; i++) {
+for(var i = 0; i < 100; i++) {
   var output_buffer = LJSON.binarify(info)
 }
 console.log('\t\t',Math.round(performance.now() - t0), 'ms');
 var t0 = performance.now();
-for(var i = 0; i < 1000; i++) {
+for(var i = 0; i < 100; i++) {
   var output_string = JSON.stringify(info);
 }
 console.log('\t\t',Math.round(performance.now() - t0), 'ms');
@@ -53,13 +53,13 @@ console.log('\t\t',output_string.length, 'byte');
 console.log('Deserialize for client')
 console.log('\tTime(ms)')
 t0 = performance.now();
-for(var i = 0; i < 1000; i++) {
+for(var i = 0; i < 100; i++) {
   LJSON.parse(output_buffer);
 }
 console.log('\t\t',Math.round(performance.now() - t0), 'ms');
 
 t0 = performance.now();
-for(var i = 0; i < 1000; i++) {
+for(var i = 0; i < 100; i++) {
   JSON.parse(output_string)
 }
 console.log('\t\t',Math.round(performance.now() - t0), 'ms');
