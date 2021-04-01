@@ -5,7 +5,7 @@ const {
 var LightJSON = require('../index.js')
 
 // define schema
-var schema = {
+var schema = [{
   id:'string',
   name:'string',
   data: [{
@@ -14,17 +14,17 @@ var schema = {
     z:'uint'
   }],
   date:'date'
-};
+}];
 
 // create data
-var info = {
+var info = [{
   id:'test',
   name:'test',
   data:[],
   date:new Date()
-};
+}];
 for(var i = 0; i < 1000; i++) {
-  info.data.push({
+  info[0].data.push({
     x:i,
     y:i,
     z:i
@@ -35,16 +35,24 @@ for(var i = 0; i < 1000; i++) {
 var LJSON = new LightJSON(schema);
 
 // performance test
-console.log('Deserialize')
+console.log('Serialize for server')
 console.log('\tBytes')
-var output_buffer = LJSON.binarify(info)
-var output_string = JSON.stringify(info);
+var t0 = performance.now();
+for(var i = 0; i < 1000; i++) {
+  var output_buffer = LJSON.binarify(info)
+}
+console.log('\t\t',Math.round(performance.now() - t0), 'ms');
+var t0 = performance.now();
+for(var i = 0; i < 1000; i++) {
+  var output_string = JSON.stringify(info);
+}
+console.log('\t\t',Math.round(performance.now() - t0), 'ms');
 console.log('\t\t',output_buffer.byteLength, 'byte');
 console.log('\t\t',output_string.length, 'byte');
 
-console.log('Serialize')
+console.log('Deserialize for client')
 console.log('\tTime(ms)')
-var t0 = performance.now();
+t0 = performance.now();
 for(var i = 0; i < 1000; i++) {
   LJSON.parse(output_buffer);
 }
