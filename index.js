@@ -1,5 +1,5 @@
 'use strict'
-
+import { Buffer } from 'buffer';
 // Stores 2^i from i=0 to i=56
 var POW = (function () {
   var r = [],
@@ -374,11 +374,11 @@ Type.types = Type.prototype.types = types
 Type.prototype.binarify = function (value) {
   var data = new Data
   this.write(value, data, '')
-  return data.toBuffer()
+  return data.toBuffer().buffer;
 }
 
 Type.prototype.parse = function (buffer) {
-  return this.read(new ReadState(buffer))
+  return this.read(new ReadState(Buffer.from(buffer)))
 }
 
 Type.prototype.write = function (value, data, path) {

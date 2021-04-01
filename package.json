@@ -1,11 +1,9 @@
 {
   "name": "light-json",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "light-json for node.js and the browser.",
   "main": "./index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shk1447/light-json.git"
@@ -24,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/shk1447/light-json/issues"
   },
-  "homepage": "https://github.com/shk1447/light-json#readme"
+  "homepage": "https://github.com/shk1447/light-json#readme",
+  "dependencies": {
+    "buffer": "^6.0.3"
+  }
 }
