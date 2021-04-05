@@ -1,10 +1,11 @@
 {
   "name": "light-json",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "light-json for node.js and the browser.",
   "main": "./index.js",
   "scripts": {
-    "benchmark":"node ./example"
+    "benchmark":"node ./example",
+    "browserify":"browserify ./index.js --standalone LJSON -o client.js"
   },
   "repository": {
     "type": "git",
