@@ -30,3 +30,7 @@ console.log(output_buffer);
 var output_json = LSON.parse(output_buffer)
 console.log(output_json);
 ```
+
+## Furture Feature
+- Websocket connection package between browser and server. (package name : light-ws and light-ws-client.)
+- Interworking with other languages.
