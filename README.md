@@ -5,6 +5,7 @@ light-json for node.js and the browser
 `npm install light-json`
 
 ## Usage
+### NodeJS
 ```js
 var LightJSON = require('light-json')
 var schema = {
@@ -29,6 +30,28 @@ var output_buffer = LSON.binarify({
 console.log(output_buffer);
 var output_json = LSON.parse(output_buffer)
 console.log(output_json);
+```
+### Browser
+#### Javascript
+```html
+<script type="module" src="/node_modules/light-json/client.js"></script>
+<script type="module">
+  var ljson = new LJSON({id:'string'});
+  var binary_json = ljson.binarify({id:'test'});
+  console.log(binary_json);
+  var json = ljson.parse(binary_json);
+  console.log(json)
+</script>
+```
+#### Import Module
+```js
+import LJSON from 'light-json';
+
+var ljson = new LJSON({id:'string'});
+var binary_json = ljson.binarify({id:'test'});
+console.log(binary_json);
+var json = ljson.parse(binary_json);
+console.log(json)
 ```
 
 ## Furture Feature
